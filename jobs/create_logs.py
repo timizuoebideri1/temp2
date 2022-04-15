@@ -14,14 +14,13 @@ class CustomFieldCreation(Job):
     def run(self, data, commit):
         for x in range(500):
             time.sleep(1)
-            
-            site = Site.objects.create(name=f"Site {x}", slug=f"site-{x}")
-            self.log_success(obj=site, message=f"Created new {site}")
-            self.log_info(obj=site, message=f"Created new {site}")
+            site = Site.objects.first()
+            self.log_success(obj=site, message="Created new site")
+            self.log_info(obj=site, message="Creating Custom Fields")
 
             output = ["device creation", "device okay"]
 
-            return '\n'.join(output)
+        return '\n'.join(output)
 
     # def post_run(self):
     #     for x in range(2000):
