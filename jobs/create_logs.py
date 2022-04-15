@@ -12,7 +12,7 @@ class CustomFieldCreation(Job):
         description = "Provision a new branch site"
 
     def run(self, data, commit):
-        for x in range(500):
+        while True:
             time.sleep(1)
             site = Site.objects.first()
             self.log_success(obj=site, message="Created new site")
